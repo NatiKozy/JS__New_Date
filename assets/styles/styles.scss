@@ -43,6 +43,13 @@ input{
     height:10%;
 }
 
+#show-yes,
+#show-no{
+    width:15%;
+    height: 25%;
+    margin: 10%;
+}
+
 .service__chat{
     margin-left: 15%;
     display: flex;
@@ -58,16 +65,7 @@ input{
     width:300px;
 }
 
-.chat__wrapper{
-    display: flex;
-    justify-content: space-around;
-    height: 20%;
 
-}
 
-.chat__date{
-    align-self:center;
-    padding-left: 5%;
-}
 
 

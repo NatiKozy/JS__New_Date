@@ -18,19 +18,24 @@
         <div class="service__wrapper">
             <form class="service__form">
                 <h2 class="service__form-title">Оставьте ваш комментарий</h2>
-                <label class="service__name" for="name"><h3>Введите ваше Имя:</h3></label>
+                <h3>Показывать ваше имя?</h3>
+                <div class="service__radio">
+                        <input type="radio" name="show" id="show-yes" value="yes">
+                        <label class="service__show-name" for="show-yes">Да</label>
+                        <input type="radio" name="show" id="show-no" value="no">
+                        <label class="service__show-name" for="show-no">Нет</label>
+                </div>
+                <h3><label class="service__name" for="name">Введите ваше Имя:</label></h3>
                     <input type="text" name="name" id="name" required>
-                <label class="service__avatar" for="avatar"><h3>Введите ссылку вашего аватара:</h3></label>
+                <h3><label class="service__avatar" for="avatar">Введите ссылку вашего аватара:</label></h3>
                     <input type="url" name="avatar" id="avatar">
-                <label class="service__comments" for="comments"><h3>Оставьте комментарий:</h3></label>
+                <h3><label class="service__comments" for="comments">Оставьте комментарий:</label></h3>
                     <textarea name="comments" id="comments" cols="40" rows="20"></textarea>
                 <input id="button" type="button" value="Отправить">
             </form>
-            <div class="chat__wrapper">
                 <div class="service__chat">
                     <h2 class="service__chat-title">Чат</h2>
                 </div>
-            </div>
         </div>
     </section>
     <script src="./assets/script/script.js"></script>

@@ -1,12 +1,4 @@
-// - Поле для ввода имени. Сделайте интерфейс преобразования имени, который учтёт, все нюансы — лишние пробелы, отсутствие больших букв в имени и прочее.
-// Например, было введено пользователем : `иВаН` .
-// Стало: `Иван` .
-// - поле для ввода ссылки на аватар;
-// - поле ввода сообщения. Необходимо реализовать отображение и добавление сообщений, а также функцию `checkSpam(str)`, заменяющую `'viagra'` или `'XXX'` на `***` ;
-// - функция должна быть нечувствительна к регистру:
 
-// let date = new Date();
-// console.log(date);
 function showData(name, imageSrc, editComments, date){
     let nameInput = document.createElement('div');
     nameInput.textContent = name;
@@ -27,22 +19,29 @@ function showData(name, imageSrc, editComments, date){
     nameContainer.append(nameInput);
     nameContainer.append(image);
     nameContainer.append(commentsDiv);
+    nameContainer.append(chatDate);
 
-    let dateContainer = document.querySelector('.chat__wrapper');
-    dateContainer.append(chatDate);
 }
+
+
+// - если пользователь не ввел ссылку на аватар, то должна появляться стандартная аватарка. Стандартных аватаров должно быть больше пяти, они должны подставляться в рандомном порядке.
+
 
 function newDate(){
     let date = new Date();
     return date;
 }
 
+const noName = document.getElementById('show-no');
 function correctName(str){
+    if(noName.checked) {
+        rightName = 'username';
+        return rightName;
+    } else {
     let rightName = str.trim();
     rightName = (rightName[0].toUpperCase() + rightName.slice(1).toLowerCase());
     return rightName;
-}
-
+}}
 
 function checkSpam(str){
     let editComments = str.trim();
@@ -69,28 +68,7 @@ button.addEventListener('click', () =>{
 
 });
 
-// const text = '<div id="text"><h1>Здесь лежит важная</h1><br> <a href="link"><b>информация</b></a> о тегах HTML, <i>которую нужно очистить.</i></div>'
 
-// function deleteTags(text) {
-//     const regex = /( |<([^>]+)>)/ig,
-//     result = text.replace(regex, " ");
-
-//     return result;
-// }
-
-// document.writeln(deleteTags(text)) // 'Здесь лежит важная информация о тегах HTML, которую нужно очистить.'
-
-// let password = 'long_password';
-
-// console.log(password.length > 7); // true
-// console.log(password.length > 7 && 'Strong'); // "Strong"
-// console.log(password.length > 7 && 'Strong' || 'Weak'); // "Strong"
-
-// password = 'short';
-
-// console.log(password.length > 7); // false
-// console.log(password.length > 7 && 'Strong'); // false
-// console.log(password.length > 7 && 'Strong' || 'Weak'); // "Weak"
 
 
 
