@@ -33,6 +33,11 @@
   gap: 30px;
 }
 
+.service__radio {
+  margin-top: -10%;
+  margin-bottom: -10%;
+}
+
 input {
   height: 10%;
 }
@@ -60,4 +65,18 @@ input {
 
 .img__size {
   width: 300px;
+  padding: 5%;
+}
+
+#button {
+  margin-bottom: 5%;
+}
+
+.username {
+  color: #4710df;
+  font-size: 24px;
+}
+
+.chat__date {
+  border-bottom: 3px dashed #4710df;
 }/*# sourceMappingURL=styles.css.map */

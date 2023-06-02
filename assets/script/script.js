@@ -1,19 +1,20 @@
 function showData(name, imageSrc, editComments, date){
-    let nameInput = document.createElement('div');
+    const nameInput = document.createElement('div');
+    nameInput.classList.add('username');
     nameInput.textContent = name;
 
-    let image = document.createElement('img');
+    const image = document.createElement('img');
     image.classList.add('img__size');
     image.src = setAvatar(imageSrc);
 
-    let commentsDiv = document.createElement('div');
+    const commentsDiv = document.createElement('div');
     commentsDiv.textContent = editComments;
 
-    let chatDate = document.createElement('div');
+    const chatDate = document.createElement('div');
     chatDate.classList.add('chat__date');
     chatDate.textContent = date;
 
-    let nameContainer = document.querySelector('.service__chat');
+    const nameContainer = document.querySelector('.service__chat');
     nameContainer.append(nameInput);
     nameContainer.append(image);
     nameContainer.append(commentsDiv);
@@ -21,7 +22,7 @@ function showData(name, imageSrc, editComments, date){
 }
 
 function newDate(){
-    let commentDate = new Date();
+    const commentDate = new Date();
     return commentDate;
 }
 
@@ -41,8 +42,6 @@ function checkSpam(str){
     editComments = /(viagra|xxx)/gi;
     return str.replace(editComments, '***');
 }
-
-let avatar = document.getElementById('avatar').value;
 
 function setAvatar(avatar){
     const defaultAvatar = [
@@ -67,48 +66,49 @@ function setAvatar(avatar){
 
 const button = document.getElementById('button');
 button.addEventListener('click', () =>{
-    let formattedName = correctName(document.getElementById('name').value);
+    const formattedName = correctName(document.getElementById('name').value);
     document.getElementById('name').value = " ";
 
-    let input = document.getElementById('avatar').value;
+    const input = document.getElementById('avatar').value;
     document.getElementById('avatar').value = " ";
 
-    let userComments = checkSpam(document.getElementById('comments').value);
+    const userComments = checkSpam(document.getElementById('comments').value);
     document.getElementById('comments').value = " ";
 
-    let userDate = newDate();
+    const userDate = newDate();
 
     showData(formattedName, input, userComments , userDate);
 });
 
-// Напишите функцию `formatDate(date)`, форматирующую `date` по следующему принципу: 
+// Напишите функцию `formatDate(date)`, форматирующую `date` по следующему принципу:
 
 // - если спустя `date` прошло менее 1 секунды, вывести `"прямо сейчас"` ;
 // - в противном случае, если с `date` прошло меньше 1 минуты, вывести `"n сек. назад"`;
 // - в противном случае, если меньше часа, вывести `"m мин. назад"`;
 // - в противном случае, полная дата в формате `"DD.MM.YY HH:mm"`. А именно: `"день.месяц.год часы:минуты"`, всё в виде двух цифр, т.е. `31.12.16 10:00`.
 
-// Например:
+function formatDate(date) {
+    const diff = new Date() - date;
+    const sec = Math.floor(diff / 1000);
+    const min = Math.floor(diff / 60000);
+    let day = date;
 
-// function formatDate(date){
-//     let date = new Date();
-//     if(){
-//         console.log('прямо сейчас')
-//     }
-
-//     console.log(date);
-//     return date;
-// }
-// console.log(formatDate(new Date(new Date - 1)));
-// onsole.log(formatDate(new Date(new Date - 30 * 1000)))
-// console.log(formatDate(new Date(new Date - 5 * 60 * 1000)));
-// console.log(formatDate(new Date(new Date - 86400 * 4 * 1000)));
-
-
-
-
-
-
-
-
-
+    if (diff < 1000) {
+        return console.log('прямо сейчас');
+    }
+    else if (sec < 60) {
+        return console.log(sec + ' сек. назад');
+    }
+    else if (min < 60) {
+        return console.log(min + ' мин. назад');
+    }
+    else if (day = [
+        '0' + day.getDate(),
+        '0' + (day.getMonth() + 1),
+        '' + day.getFullYear(),
+        '0' + day.getMinutes()
+        ].map(component => component.slice(-2))) {
+    return console.log(day.slice(0, 3).join('.') + ' ' + day.slice(3).join(':'));
+    }
+}
+formatDate(new Date());
